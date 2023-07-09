@@ -67,7 +67,7 @@ export default {
 			/>
 			<img
 				v-else
-				src="../assets/images/developer-dark.svg"
+				src="@/assets/images/developer-dark.svg"
 				alt="Developer"
 			/>
 		</div>
