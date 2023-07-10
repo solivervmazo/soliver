@@ -1,0 +1,1 @@
+import{_ as o,P as t,e as s,o as c,c as r,f as n}from"./index-49e38d95.js";const a={name:"Projects",components:{ProjectsGrid:t}},_={class:"container mx-auto"};function p(d,i,m,f,l,P){const e=s("ProjectsGrid");return c(),r("div",_,[n(e)])}const u=o(a,[["render",p]]);export{u as default};
