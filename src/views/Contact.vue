@@ -13,18 +13,23 @@ export default {
 			contacts: [
 				{
 					id: 1,
-					name: 'Your Address, Your City, Your Country',
+					name: 'Davao City, Davao del Sur Philippines, 8000',
 					icon: 'map-pin',
 				},
 				{
 					id: 2,
-					name: 'email@domain.com',
+					name: 'solivervmazo.jobs@gmail.com',
 					icon: 'mail',
 				},
 				{
 					id: 3,
-					name: '555 8888 888',
-					icon: 'phone',
+					name: 'github.com/solivervmazo',
+					icon: 'github',
+				},
+				{
+					id: 3,
+					name: 'linkedin.com/in/solivervmazo/',
+					icon: 'linkedin',
 				},
 			],
 		};
@@ -44,7 +49,7 @@ export default {
 		class="container mx-auto flex flex-col-reverse md:flex-row py-5 md:py-10 md:mt-10"
 	>
 		<!-- Contact form -->
-		<ContactForm />
+		<!-- <ContactForm /> -->
 
 		<!-- Contact details -->
 		<ContactDetails :contacts="contacts" />

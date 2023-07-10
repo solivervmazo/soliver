@@ -1,5 +1,12 @@
 // Projects data.
 // Note: Here we are getting data from a js file, but in a different project I'll be fetching these projects from some srt of APIs.
+const categories = [
+	"Sql",
+	"Python",
+	"Tableau",
+	"Sheets",
+	"Others"
+]
 
 const projects = [
 	{
@@ -41,3 +48,4 @@ const projects = [
 ];
 
 export default projects;
+export { projects , categories };

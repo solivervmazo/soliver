@@ -1,4 +1,5 @@
 <script>
+import { categories } from "../../data/projects.js"
 export default {
 	props: {
 		select: {
@@ -8,12 +9,7 @@ export default {
 		},
 		selectOptions: {
 			type: Array,
-			default: () => [
-				'Web Application',
-				'Mobile Application',
-				'UI/UX Design',
-				'Branding & Anim',
-			],
+			default: () => categories,
 		},
 	},
 };

@@ -1,7 +1,7 @@
 <script>
-import AboutMe from '@/components/about/AboutMe.vue';
-import AboutCounter from '@/components/about/AboutCounter.vue';
-import AboutClients from '@/components/about/AboutClients.vue';
+import AboutMe from '../components/about/AboutMe.vue';
+import AboutCounter from '../components/about/AboutCounter.vue';
+import AboutCerts from '../components/about/AboutCerts.vue';
 import feather from 'feather-icons';
 
 export default {
@@ -9,7 +9,7 @@ export default {
 	components: {
 		AboutMe,
 		AboutCounter,
-		AboutClients,
+		AboutCerts,
 	},
 	data: () => {
 		return {};
@@ -36,7 +36,7 @@ export default {
 
 		<!-- About counter -->
 		<div class="container mx-auto">
-			<AboutClients />
+			<AboutCerts/>
 		</div>
 	</div>
 </template>

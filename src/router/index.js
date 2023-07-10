@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '@/views/Home.vue';
+import Home from '../views/Home.vue';
 
 const routes = [
 	{
@@ -7,7 +7,7 @@ const routes = [
 		name: 'Home',
 		component: Home,
 		meta: {
-			title: 'Stoman - Home',
+			title: 'Soliver - Home',
 		},
 	},
 	{
@@ -17,9 +17,21 @@ const routes = [
 		// this generates a separate chunk (about.[hash].js) for this route
 		// which is lazy-loaded when the route is visited.
 		component: () =>
-			import(/* webpackChunkName: "about" */ '@/views/About.vue'),
+			import(/* webpackChunkName: "about" */ '../views/About.vue'),
 		meta: {
-			title: 'Stoman - About',
+			title: 'Soliver - About',
+		}
+	},
+	{
+		path: '/credentials',
+		name: 'Credentials',
+		// route level code-splitting
+		// this generates a separate chunk (about.[hash].js) for this route
+		// which is lazy-loaded when the route is visited.
+		component: () =>
+			import(/* webpackChunkName: "about" */ '../views/Credentials.vue'),
+		meta: {
+			title: 'Soliver - Credentials',
 		},
 	},
 	{
@@ -31,7 +43,7 @@ const routes = [
 		component: () =>
 			import(/* webpackChunkName: "projects" */ '../views/Projects.vue'),
 		meta: {
-			title: 'Stoman - Projects',
+			title: 'Soliver - Projects',
 		},
 	},
 	{
@@ -45,7 +57,7 @@ const routes = [
 				/* webpackChunkName: "projects" */ '../views/SingleProject.vue'
 			),
 		meta: {
-			title: 'Stoman - Single Project',
+			title: 'Soliver - Single Project',
 		},
 	},
 	{
@@ -57,7 +69,7 @@ const routes = [
 		component: () =>
 			import(/* webpackChunkName: "projects" */ '../views/Contact.vue'),
 		meta: {
-			title: 'Stoman - Contact',
+			title: 'Soliver - Contact',
 		},
 	},
 ];
@@ -74,7 +86,7 @@ export default router;
 
 /**
  * Below code will display the component/active page title
- * Powered by: Nangialai Stoman
+ * Powered by: Nangialai Soliver
  */
 
 // This callback runs before every route change, including on page load.

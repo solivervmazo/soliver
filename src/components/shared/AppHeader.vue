@@ -17,6 +17,8 @@ export default {
 			isOpen: false,
 			theme: '',
 			modal: false,
+			logoDark: new URL('~@/assets/images/logo-dark.png', import.meta.url).href,
+			logoLight: new URL('~@/assets/images/logo-light.png', import.meta.url).href,
 			categories: [
 				{
 					id: 1,
@@ -87,13 +89,13 @@ export default {
 					<router-link to="/"
 						><img
 							v-if="theme === 'light'"
-							src="@/assets/images/logo-dark.svg"
+							:src="logoDark"
 							class="w-36"
 							alt="Dark Logo"
 						/>
 						<img
 							v-else
-							src="@/assets/images/logo-light.svg"
+							:src="logoLight"
 							class="w-36"
 							alt="Light Logo"
 						/>
@@ -144,14 +146,14 @@ export default {
 				class="hidden sm:flex justify-between items-center flex-col md:flex-row"
 			>
 				<!-- Hire me button -->
-				<div class="hidden md:block">
+				<!-- <div class="hidden md:block">
 					<Button
 						title="Hire Me"
 						class="text-md font-general-medium bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-md px-5 py-2.5 duration-300"
 						@click="showModal()"
 						aria-label="Hire Me Button"
 					/>
-				</div>
+				</div> -->
 
 				<!-- Theme switcher large screen -->
 				<theme-switcher

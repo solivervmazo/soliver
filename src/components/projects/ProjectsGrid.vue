@@ -2,7 +2,7 @@
 import feather from 'feather-icons';
 import ProjectsFilter from './ProjectsFilter.vue';
 import ProjectSingle from './ProjectSingle.vue';
-import projects from '../../data/projects';
+import {projects , categories } from '../../data/projects';
 
 export default {
 	components: { ProjectSingle, ProjectsFilter },
@@ -12,6 +12,7 @@ export default {
 			projectsHeading: 'Projects Portfolio',
 			selectedCategory: '',
 			searchProject: '',
+			categories,
 		};
 	},
 	computed: {
@@ -72,7 +73,9 @@ export default {
 					mb-4
 				"
 			>
-				Search projects by title or filter by category
+				<span v-for="category in categories.length" :key="category">
+					{{ categories[category - 1] }} {{ category == categories.length ? "" : "&nbsp; &nbsp;" }}
+				</span>
 			</h3>
 			<div
 				class="
