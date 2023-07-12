@@ -30,7 +30,6 @@ export default {
 		<div class="container mx-auto">
 			<AboutMe />
 		</div>
-
 		<!-- About counter -->
 		<!-- <AboutCounter /> -->
 

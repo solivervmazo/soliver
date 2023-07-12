@@ -1,6 +1,9 @@
 <script>
+import { capitalize } from 'vue';
+import strings from '../../mixins/strings';
 export default {
-	props: ['singleProjectHeader'],
+	props: ['project'],
+	mixins: [strings]
 };
 </script>
 
@@ -10,27 +13,49 @@ export default {
 		<p
 			class="font-general-medium text-left text-3xl sm:text-4xl font-bold text-primary-dark dark:text-primary-light mt-14 sm:mt-20 mb-7"
 		>
-			{{ singleProjectHeader.singleProjectTitle }}
+			{{ project.title }}
 		</p>
 		<div class="flex">
 			<div class="flex items-center mr-10">
+				<!-- Project type -->
 				<i
 					data-feather="clock"
 					class="w-4 h-4 text-ternary-dark dark:text-ternary-light"
-				></i>
+				></i>	
 				<span
 					class="font-general-medium ml-2 leading-none text-primary-dark dark:text-primary-light"
-					>{{ singleProjectHeader.singleProjectDate }}</span
+					>{{ capitalize(project.type) }}</span
 				>
 			</div>
+			<div class="flex items-center mr-10">
+				<!-- Project Link -->
+				<i
+					v-if="project.link && project.link.iconSet == 'feathericons'"
+					:data-feather="project.link.icon"
+					class="w-4 h-4 text-ternary-dark dark:text-ternary-light"
+				></i>
+				<font-awesome-icon 
+					v-if="project.link && project.link.iconSet == 'fontawesome'" 
+					:icon="['fab', project.link.icon]" 
+					class="w-4 h-4 text-ternary-dark dark:text-ternary-light" 
+				></font-awesome-icon>
+				<a
+					:href="project.link.url"
+					target="_blank"
+					class="font-general-medium ml-2 leading-none text-primary-dark dark:text-primary-light"
+				>
+				{{ `View in ${project.link.name}` }}
+				</a>
+			</div>
+			<!-- Project Date -->
 			<div class="flex items-center">
 				<i
-					data-feather="tag"
+					data-feather="codepen"
 					class="w-4 h-4 text-ternary-dark dark:text-ternary-light"
 				></i>
 				<span
 					class="font-general-medium ml-2 leading-none text-primary-dark dark:text-primary-light"
-					>{{ singleProjectHeader.singleProjectTag }}</span
+					>{{ project.date }}</span
 				>
 			</div>
 		</div>

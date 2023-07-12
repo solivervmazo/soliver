@@ -62,7 +62,7 @@ export default {
 		</div>
 
 		<!-- Filter and search projects -->
-		<div class="mt-10 sm:mt-10">
+		<!-- <div class="mt-10 sm:mt-10">
 			<h3
 				class="font-general-regular
 					text-center text-secondary-dark
@@ -132,7 +132,7 @@ export default {
 				</div>
 				<ProjectsFilter @filter="selectedCategory = $event" />
 			</div>
-		</div>
+		</div> -->
 
 		<!-- Projects grid -->
 		<div

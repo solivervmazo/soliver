@@ -3,9 +3,10 @@ import App from './App.vue';
 import router from './router';
 import './assets/css/app.css';
 import BackToTop from 'vue-backtotop';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faKaggle } from '@fortawesome/free-brands-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faKaggle } from '@fortawesome/free-brands-svg-icons';
+import { createHead } from '@vueuse/head'
 // const feather = require('feather-icons');
 // feather.replace();
 
@@ -14,8 +15,10 @@ library.add(faKaggle)
 createApp(App)
 	.use(router)
 	.use(BackToTop)
+	.use(createHead())
 	.component('font-awesome-icon', FontAwesomeIcon)
 	.mount('#app');
+
 
 const appTheme = localStorage.getItem('theme');
 

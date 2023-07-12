@@ -1,9 +1,21 @@
 <script>
 import feather from 'feather-icons';
+import mixins from '../../mixins/strings.js';
+import mds from '../../mixins/mds.js';
+import Md from './ProjectMd.vue'
+import { useRoute } from 'vue-router';
 
 export default {
-	props: ['projectInfo'],
-
+	props: ['project'],
+	// mixins: [mixins,mds],
+	data: () => {
+		return {
+			hasMd: () => useRoute().query && useRoute().query.dir && useRoute().query.md
+		}
+	},
+	components:{
+		Md,
+	},
 	mounted() {
 		feather.replace();
 	},
@@ -18,15 +30,15 @@ export default {
 		<!-- Single project left section details -->
 		<div class="w-full sm:w-1/3 text-left">
 			<!-- Single project client details -->
-			<div class="mb-7">
+			<div v-if="project.details.client" class="mb-7">
 				<p
 					class="font-general-medium text-2xl text-secondary-dark dark:text-secondary-light mb-2"
 				>
-					{{ projectInfo.clientHeading }}
+					{{ details.clientHeading }}
 				</p>
 				<ul class="leading-loose">
 					<li
-						v-for="info in projectInfo.companyInfos"
+						v-for="info in details.companyInfos"
 						:key="info"
 						class="font-general-regular text-ternary-dark dark:text-ternary-light"
 					>
@@ -44,45 +56,70 @@ export default {
 					</li>
 				</ul>
 			</div>
-
+			<!-- Single project source details -->
+			<div v-if="project.guided" class="mb-7">
+				<p
+					class="font-general-medium text-2xl text-secondary-dark dark:text-secondary-light mb-2"
+				>
+					{{ project.details.guided.heading }}
+				</p>
+				
+				<ul class="leading-loose">
+					<li class="font-general-regular text-ternary-dark dark:text-ternary-light">
+						<a :href="project.details.guided.courseUrl">
+							{{ project.details.guided.courseTitle }}
+						</a>
+					</li>
+					<li
+						v-for="key in Object.keys(project.details.guided.details)"
+						:key="key"
+						class="font-general-regular text-ternary-dark dark:text-ternary-light"
+					>
+						<span>{{ capitalize(key) }}:&nbsp;</span>
+						<a :href="project.details.guided.details[key].url" target="_blank">
+							{{ project.details.guided.details[key].name }}
+						</a>
+					</li>
+				</ul>
+			</div>
 			<!-- Single project objectives -->
-			<div class="mb-7">
+			<div v-if="project.details.objective" class="mb-7">
 				<p
 					class="font-general-medium text-2xl text-ternary-dark dark:text-ternary-light mb-2"
 				>
-					{{ projectInfo.objectivesHeading }}
+					{{ project.details.objective.heading }}
 				</p>
 				<p
 					class="font-general-regular text-primary-dark dark:text-ternary-light"
 				>
-					{{ projectInfo.objectivesDetails }}
+					{{ project.details.objective.text }}
 				</p>
 			</div>
 
 			<!-- Single project technologies -->
-			<div class="mb-7">
+			<div v-if="project.details.tags" class="mb-7">
 				<p
 					class="font-general-medium text-2xl text-ternary-dark dark:text-ternary-light mb-2"
 				>
-					{{ projectInfo.technologies[0].title }}
+					{{ project.details.tags.heading }}
 				</p>
 				<p
 					class="font-general-regular text-primary-dark dark:text-ternary-light"
 				>
-					{{ projectInfo.technologies[0].techs.join(', ') }}
+					{{ project.details.tags.tags.join(', ') }}
 				</p>
 			</div>
 
 			<!-- Single project social sharing -->
-			<div>
+			<!-- <div>
 				<p
 					class="font-general-medium text-2xl text-ternary-dark dark:text-ternary-light mb-2"
 				>
-					{{ projectInfo.socialSharingsHeading }}
+					{{ details.socialSharingsHeading }}
 				</p>
 				<div class="flex items-center gap-3 mt-5">
 					<a
-						v-for="social in projectInfo.socialSharings"
+						v-for="social in project.socialSharings"
 						:key="social.id"
 						:href="social.url"
 						target="__blank"
@@ -94,23 +131,25 @@ export default {
 						></i
 					></a>
 				</div>
-			</div>
+			</div> -->
 		</div>
 
 		<!-- Single project right section details -->
-		<div class="w-full sm:w-2/3 text-left mt-10 sm:mt-0">
-			<p
+		<div class="w-full sm:w-2/3 text-left mt-10 text-sm sm:mt-0 bg-slate-100 p-1">
+			<Md v-if="hasMd"  :key="Math.ceil(Math.random()*1000000)" />
+			<!-- <component :is="componentLoader"/> -->
+			<!-- <p
 				class="font-general-medium text-primary-dark dark:text-primary-light text-2xl font-bold mb-7"
 			>
-				{{ projectInfo.projectDetailsHeading }}
+				{{ details.projectDetailsHeading }}
 			</p>
 			<p
-				v-for="projectDetail in projectInfo.projectDetails"
+				v-for="projectDetail in project.projectDetails"
 				:key="projectDetail.id"
 				class="font-general-regular mb-5 text-lg text-ternary-dark dark:text-ternary-light"
 			>
 				{{ projectDetail.details }}
-			</p>
+			</p> -->
 		</div>
 	</div>
 </template>

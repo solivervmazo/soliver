@@ -8,13 +8,20 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "cd dist && copy index.html 404.html",
-    "publish": "npm run deploy && git add dist -f && git commit -m 'Updating' && git subtree push --prefix dist origin gh-pages && git push"
+    "publish": "npm run deploy && git add dist -f && git commit -m 'Updating' && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@highlightjs/vue-plugin": "^2.1.0",
+    "@vueuse/head": "^1.1.26",
     "feather-icons": "^4.29.0",
+    "highlight.js": "^11.8.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-prism": "^2.3.0",
+    "md-powerpack": "^1.0.3",
+    "vite-plugin-vue-markdown": "^0.23.5",
     "vue": "^3.3.4",
     "vue-backtotop": "^1.6.1",
     "vue-router": "^4.1.6",
@@ -24,6 +31,7 @@
     "@vitejs/plugin-vue": "^4.2.3",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.25",
+    "sass": "^1.63.6",
     "tailwindcss": "^3.3.2",
     "vite": "^4.4.0"
   }

@@ -4,6 +4,8 @@ import ProjectHeader from '../components/projects/ProjectHeader.vue';
 import ProjectGallery from '../components/projects/ProjectGallery.vue';
 import ProjectInfo from '../components/projects/ProjectInfo.vue';
 import ProjectRelatedProjects from '../components/projects/ProjectRelatedProjects.vue';
+import { projects } from '../data/projects.js';
+import { useRoute } from 'vue-router'
 
 export default {
 	name: 'Projects',
@@ -15,6 +17,8 @@ export default {
 	},
 	data: () => {
 		return {
+			projects: JSON.parse(JSON.stringify(projects)).reverse(),
+			project: projects.find(x => x.project == useRoute().params.project),
 			singleProjectHeader: {
 				singleProjectTitle: 'Project Management UI',
 				singleProjectDate: 'Jul 26, 2021',
@@ -24,138 +28,41 @@ export default {
 				{
 					id: 1,
 					title: 'Kabul Project Management UI',
-					img: require('../assets/images/ui-project-1.jpg'),
+					img: new URL('../assets/images/ui-project-1.jpg', import.meta.url).href,
 				},
 				{
 					id: 2,
 					title: 'Kabul Project Management UI',
-					img: require('../assets/images/web-project-2.jpg'),
+					img: new URL('../assets/images/web-project-2.jpg', import.meta.url).href,
 				},
 				{
 					id: 3,
 					title: 'Kabul Project Management UI',
-					img: require('../assets/images/mobile-project-2.jpg'),
+					img: new URL('../assets/images/mobile-project-2.jpg', import.meta.url).href,
 				},
 			],
-			projectInfo: {
-				clientHeading: 'About Client',
-				companyInfos: [
-					{
-						id: 1,
-						title: 'Name',
-						details: 'Company Ltd',
-					},
-					{
-						id: 2,
-						title: 'Services',
-						details: 'UI Design & Frontend Development',
-					},
-					{
-						id: 3,
-						title: 'Website',
-						details: 'https://company.com',
-					},
-					{
-						id: 4,
-						title: 'Phone',
-						details: '555 8888 888',
-					},
-				],
-				objectivesHeading: 'Objective',
-				objectivesDetails:
-					'Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, natus! Quibusdam enim quod in esse, mollitia molestias incidunt quas ipsa accusamus veniam.',
-				technologies: [
-					{
-						title: 'Tools & Technologies',
-						techs: [
-							'HTML',
-							'CSS',
-							'JavaScript',
-							'Vue.js',
-							'TailwindCSS',
-							'AdobeXD',
-						],
-					},
-				],
-				projectDetailsHeading: 'Challenge',
-				projectDetails: [
-					{
-						id: 1,
-						details:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.',
-					},
-					{
-						id: 2,
-						details:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?',
-					},
-					{
-						id: 3,
-						details:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?',
-					},
-					{
-						id: 4,
-						details:
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.',
-					},
-				],
-				socialSharingsHeading: 'Share This',
-				socialSharings: [
-					{
-						id: 1,
-						name: 'Twitter',
-						icon: 'twitter',
-						url: 'https://twitter.com/realstoman',
-					},
-					{
-						id: 2,
-						name: 'Instagram',
-						icon: 'instagram',
-						url: 'https://instagram.com/realstoman',
-					},
-					{
-						id: 3,
-						name: 'Facebook',
-						icon: 'facebook',
-						url: 'https://facebook.com/',
-					},
-					{
-						id: 4,
-						name: 'LinkedIn',
-						icon: 'linkedin',
-						url: 'https://linkedin.com/',
-					},
-					{
-						id: 5,
-						name: 'Youtube',
-						icon: 'youtube',
-						url: 'https://www.youtube.com/c/StomanStudio',
-					},
-				],
-			},
 			relatedProject: {
 				relatedProjectsHeading: 'Related Projects',
 				relatedProjects: [
 					{
 						id: 1,
 						title: 'Mobile UI',
-						img: require('../assets/images/mobile-project-1.jpg'),
+						img: new URL('../assets/images/mobile-project-1.jpg', import.meta.url).href,
 					},
 					{
 						id: 2,
 						title: 'Web Application',
-						img: require('../assets/images/web-project-1.jpg'),
+						img: new URL('../assets/images/web-project-1.jpg', import.meta.url).href,
 					},
 					{
 						id: 3,
 						title: 'UI Design',
-						img: require('../assets/images/ui-project-2.jpg'),
+						img: new URL('../assets/images/ui-project-2.jpg', import.meta.url).href,
 					},
 					{
 						id: 4,
 						title: 'Kabul Mobile App UI',
-						img: require('../assets/images/mobile-project-2.jpg'),
+						img: new URL('../assets/images/mobile-project-2.jpg', import.meta.url).href,
 					},
 				],
 			},
@@ -174,13 +81,13 @@ export default {
 <template>
 	<div class="container mx-auto mt-10 sm:mt-20">
 		<!-- Project header -->
-		<ProjectHeader :singleProjectHeader="singleProjectHeader" />
+		<ProjectHeader :project="project" />
 
 		<!-- Project gallery -->
-		<ProjectGallery :projectImages="projectImages" />
+		<ProjectGallery v-if="project.src && project.src.images && project.src.images.length > 0" :project="project" />
 
 		<!-- Project information -->
-		<ProjectInfo :projectInfo="projectInfo" />
+		<ProjectInfo :project="project"/>
 
 		<!-- Project related projects -->
 		<ProjectRelatedProjects :relatedProject="relatedProject" />
