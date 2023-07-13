@@ -6,19 +6,20 @@ import BackToTop from 'vue-backtotop';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faKaggle } from '@fortawesome/free-brands-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { createHead } from '@vueuse/head'
 // const feather = require('feather-icons');
 // feather.replace();
 
-library.add(faKaggle)
+library.add(faKaggle,faXmark)
 
 createApp(App)
 	.use(router)
 	.use(BackToTop)
 	.use(createHead())
 	.component('font-awesome-icon', FontAwesomeIcon)
+	.provide('imgProjectErrorUrl', new URL(`../src/assets/images/placeholder-project.jpg`, import.meta.url).href)
 	.mount('#app');
-
 
 const appTheme = localStorage.getItem('theme');
 

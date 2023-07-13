@@ -38,8 +38,8 @@ export default {
 </script>
 
 <template>
-		<div class="w-full sm:w-2/3 text-left mt-10 text-sm sm:mt-0 bg-slate-100 p-1">
-			<Md :key="componentKey" />
+		<div class="prose">
+			<Md :key="componentKey"/>
 		</div>
 </template>
 <style lang="scss">

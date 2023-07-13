@@ -1,16 +1,15 @@
 <script>
 import feather from 'feather-icons';
-import mixins from '../../mixins/strings.js';
-import mds from '../../mixins/mds.js';
+import strings from '../../mixins/strings.js';
 import Md from './ProjectMd.vue'
 import { useRoute } from 'vue-router';
 
 export default {
 	props: ['project'],
-	// mixins: [mixins,mds],
+	mixins: [strings],
 	data: () => {
 		return {
-			hasMd: () => useRoute().query && useRoute().query.dir && useRoute().query.md
+			hasMd: () => useRoute().query && useRoute().query.dir && useRoute().query.md,
 		}
 	},
 	components:{
@@ -57,7 +56,7 @@ export default {
 				</ul>
 			</div>
 			<!-- Single project source details -->
-			<div v-if="project.guided" class="mb-7">
+			<div v-if="project.details.guided" class="mb-7">
 				<p
 					class="font-general-medium text-2xl text-secondary-dark dark:text-secondary-light mb-2"
 				>
@@ -135,7 +134,7 @@ export default {
 		</div>
 
 		<!-- Single project right section details -->
-		<div class="w-full sm:w-2/3 text-left mt-10 text-sm sm:mt-0 bg-slate-100 p-1">
+		<div class="w-full sm:w-2/3 text-left mt-10 text-sm sm:mt-0 bg-slate-100 p-3 rounded-md overflow-auto max-h-screen">
 			<Md v-if="hasMd"  :key="Math.ceil(Math.random()*1000000)" />
 			<!-- <component :is="componentLoader"/> -->
 			<!-- <p

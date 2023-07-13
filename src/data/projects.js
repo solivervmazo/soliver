@@ -23,7 +23,7 @@ const projects = [
 		project: 'soliver-portfolio-using-vue-vite-tailwind',
 		title: 'Soliver portfolio using Vue+Vite and TailwinCSS hosted in Github pages',
 		category: 'others',
-		img: new URL('../assets/images/web-project-2.jpg', import.meta.url).href ,
+		img: 'cover.png' ,
 		type: 'soliver mazo',
 		date: 'July 2023',
 		details: {
@@ -50,8 +50,8 @@ const projects = [
 			}
 		},
 		src: {
-			coverImg: false,
-			images: [],
+			coverImg: 'cover.png',
+			images: ['about.png', /*'about-dark.png',*/ 'project1.png', 'project2.png'],
 			md: 'README'
 		},
 		link: {
@@ -67,7 +67,7 @@ const projects = [
 		project: 'exploratory-data-analysis-python-pandas',
 		title: 'Exploratory Data Analysis With Python and Pandas',
 		category: 'Data Analysis',
-		img: new URL('../assets/images/web-project-2.jpg', import.meta.url).href ,
+		img: 'cover.png' ,
 		type: 'guided project',
 		date: 'July 2023',
 		details: {
@@ -94,9 +94,9 @@ const projects = [
 			}
 		},
 		src: {
-			coverImg: false,
-			images: ['1.png','2.png','3.png'],
-			md: 'Hello'
+			coverImg: 'cover.png',
+			images: ['output_15_1.png','output_14_1.png','output_32_2.png'],
+			md: 'notebook'
 		},
 		link: {
 			name: 'Kaggle',

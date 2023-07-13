@@ -1,17 +1,25 @@
 <script>
 import strings from '../../mixins/strings.js'
+import urls from '../../mixins/urls.js';
+
 export default {
 	props: ['project'],
-	mixins: [strings]
+	mixins: [strings,urls],
+	inject: ['imgProjectErrorUrl']
 };
 </script>
 
 <template>
 	<router-link :to="{ path: `/projects/${project.project}`, query: { dir: project.dir, md : project.src.md } }"
-		class="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark"
+		class="relative rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark"
 		aria-label="Single Project">
-		<div>
-			<img :src="project.img" :alt="project.img" class="rounded-t-xl border-none" />
+		<div class="overflow-hidden max-h-40">
+			<img 
+				:src="projectUrl(`${project.dir}/${project.project}-img-${project.img}`)" 
+				:alt="project.img" 
+				@error="$event.target.src = imgProjectErrorUrl"
+				class="rounded-t-xl border-none" 
+			/>
 		</div>
 		<div class="text-center px-4 pt-6 pb-4">
 			<p class="font-general-semibold text-xl text-ternary-dark dark:text-ternary-light font-semibold mb-2">
@@ -21,12 +29,12 @@ export default {
 				{{ project.category }}
 			</span> -->
 		</div>
-		<div v-if="project.details && project.details.tags" class="flex px-4 pt-2 pb-4">
+		<div v-if="project.details && project.details.tags" class="flex px-4 pt-2 pb-8">
 			<span class="font-general-medium pt-0 px-1 text-sm text-ternary-dark dark:text-ternary-light">
 				{{ project.details.tags.tags.join(', ') }}
 			</span>
 		</div>
-		<div class="text-right px-4 pt-2 pb-4">
+		<div class="absolute inset-x-0 bottom-0 text-right px-2 pt-2 pb-2">
 			<p class="font-general-medium pt-0 px-1 text-sm text-ternary-dark dark:text-ternary-light">
 				{{ capitalize(project.type) }}
 			</p>

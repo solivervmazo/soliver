@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import Markdown from 'vite-plugin-vue-markdown'
 import code from '@yankeeinlondon/code-builder'
+import markdownitEmoji from 'markdown-it-emoji';
 import md from 'markdown-it'
 import hljs from 'highlight.js'
 
@@ -24,12 +25,10 @@ export default defineConfig({
       headEnabled: true,
       markdownItOptions: {
         breaks: true,
-        
         html: true,
         linkify: true,
         typographer: true,
         highlight: function (str, lang) {
-          console.log(lang)
           if (lang && hljs.getLanguage(lang)) {
             try {
               return '<pre class="hljs"><code>' +
@@ -42,6 +41,9 @@ export default defineConfig({
 
       },
       builders: [code()],
+      markdownItSetup(md) {
+        md.use(markdownitEmoji)
+      }
     }),
   ],
 })

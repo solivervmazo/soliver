@@ -44,7 +44,7 @@ export default {
 			>
 				SQL • PYTHON • TABLEAU • GOOGLE SHEETS
 			</p>
-			<div class="flex justify-center sm:block">
+			<!-- <div class="flex justify-center sm:block">
 				<a
 					download="Stoman-Resume.pdf"
 					href="/files/Stoman-Resume.pdf"
@@ -60,7 +60,7 @@ export default {
 						>Download CV</span
 					></a
 				>
-			</div>
+			</div> -->
 		</div>
 
 		<!-- Banner right illustration -->

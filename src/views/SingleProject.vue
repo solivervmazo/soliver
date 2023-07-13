@@ -90,7 +90,7 @@ export default {
 		<ProjectInfo :project="project"/>
 
 		<!-- Project related projects -->
-		<ProjectRelatedProjects :relatedProject="relatedProject" />
+		<!-- <ProjectRelatedProjects :relatedProject="relatedProject" /> -->
 	</div>
 </template>
 

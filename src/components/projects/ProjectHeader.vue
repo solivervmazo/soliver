@@ -1,9 +1,8 @@
 <script>
-import { capitalize } from 'vue';
 import strings from '../../mixins/strings';
 export default {
 	props: ['project'],
-	mixins: [strings]
+	mixins: [strings],
 };
 </script>
 
