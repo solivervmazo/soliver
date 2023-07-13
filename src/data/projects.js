@@ -6,7 +6,25 @@ const sources = {
 		name: 'Coursera.org',
 		url: 'https://www.coursera.org/',
 	}
-} 
+}
+
+const repos = {
+	kaggle: {
+		name: 'Kaggle',
+		icon: 'kaggle',
+		iconSet: 'fontawesome',
+	},
+	github: {
+		name: 'Github',
+		icon: 'github',
+		iconSet: 'feathericons',
+	},
+	bigquery: {
+		name: 'BigQuery',
+		icon: 'google',
+		iconSet: 'fontawesome',
+	}
+}
 
 const categories = [
 	"Sql",
@@ -46,14 +64,45 @@ const projects = [
 			md: 'README'
 		},
 		link: {
-			name: 'Github',
-			icon: 'github',
-			iconSet: 'feathericons',
+			...repos.github,
 			url: 'https://github.com/solivervmazo/soliver'
 		}
 	},
 	{
 		id: 2,
+		dir: "sql_airbnb_london",
+		project: 'sql-data-cleaning-london-airbnb-listings-2023',
+		title: 'Data cleaning using SQL: London AairBnb listings March 2023',
+		category: 'Data Analysis',
+		img: 'cover.png' ,
+		type: 'soliver mazo',
+		date: 'June 2023',
+		details: {
+			client: false,
+			guided: false,
+			objective: {
+				key: 'objective',
+				heading: 'Objective',
+				text: `This project aims to prepare the data for analysis by filtering out data outside Uk.`,
+			},
+			tags: {
+				key: 'tags',
+				heading: 'Tools & Technologies',
+				tags: ['SQL', 'Data Analysis', 'BigQuery']
+			}
+		},
+		src: {
+			coverImg: 'cover.png',
+			images: [],
+			md: 'README'
+		},
+		link: {
+			...repos.bigquery,
+			url: 'https://console.cloud.google.com/bigquery?sq=855219307890:df8ae76bb28948059671d59ab8a5d913'
+		}
+	},
+	{
+		id: 3,
 		dir: "1",
 		project: 'exploratory-data-analysis-python-pandas',
 		title: 'Exploratory Data Analysis With Python and Pandas',
@@ -94,14 +143,12 @@ const projects = [
 			md: 'notebook'
 		},
 		link: {
-			name: 'Kaggle',
-			icon: 'kaggle',
-			iconSet: 'fontawesome',
-			url: 'https://www.kaggle.com/solivermazo'
+			...repos.kaggle,
+			url: 'https://www.kaggle.com/code/solivermazo/exploratory-data-analysis-with-python-and-pandas'
 		}
 	},
 	{
-		id: 3,
+		id: 4,
 		dir: "coursera_py2",
 		project: 'python-for-data-analysis-pandas-numpy',
 		title: 'Python for Data Analysis: Pandas & NumPy',
@@ -141,7 +188,10 @@ const projects = [
 			images: [],
 			md: 'notebook'
 		},
-		link: false
+		link: {
+			...repos.kaggle,
+			url: 'https://www.kaggle.com/solivermazo/python-for-data-analysis-pandas-numpy'
+		}
 	},
 ];
 

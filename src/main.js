@@ -5,13 +5,13 @@ import './assets/css/app.css';
 import BackToTop from 'vue-backtotop';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faKaggle } from '@fortawesome/free-brands-svg-icons';
+import { faKaggle, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { createHead } from '@vueuse/head'
 // const feather = require('feather-icons');
 // feather.replace();
 
-library.add(faKaggle,faXmark)
+library.add(faKaggle,faXmark,faGoogle)
 
 createApp(App)
 	.use(router)

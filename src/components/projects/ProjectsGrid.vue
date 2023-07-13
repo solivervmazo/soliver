@@ -8,7 +8,7 @@ export default {
 	components: { ProjectSingle, ProjectsFilter },
 	data: () => {
 		return {
-			projects,
+			projects: JSON.parse(JSON.stringify(projects)).reverse(),
 			projectsHeading: 'Projects Portfolio',
 			selectedCategory: '',
 			searchProject: '',
