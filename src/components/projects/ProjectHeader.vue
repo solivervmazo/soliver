@@ -3,6 +3,7 @@ import strings from '../../mixins/strings';
 export default {
 	props: ['project'],
 	mixins: [strings],
+	inject: ['linkClass']
 };
 </script>
 
@@ -26,7 +27,7 @@ export default {
 					>{{ capitalize(project.type) }}</span
 				>
 			</div>
-			<div class="flex items-center mr-10">
+			<div v-if="project.link" class="flex items-center mr-10">
 				<!-- Project Link -->
 				<i
 					v-if="project.link && project.link.iconSet == 'feathericons'"
@@ -41,7 +42,7 @@ export default {
 				<a
 					:href="project.link.url"
 					target="_blank"
-					class="font-general-medium ml-2 leading-none text-primary-dark dark:text-primary-light"
+					:class="`font-general-medium ml-2 leading-none text-primary-dark dark:text-primary-light ${linkClass}`"
 				>
 				{{ `View in ${project.link.name}` }}
 				</a>

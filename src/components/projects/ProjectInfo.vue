@@ -7,6 +7,7 @@ import { useRoute } from 'vue-router';
 export default {
 	props: ['project'],
 	mixins: [strings],
+	inject: ['linkClass'],
 	data: () => {
 		return {
 			hasMd: () => useRoute().query && useRoute().query.dir && useRoute().query.md,
@@ -27,7 +28,7 @@ export default {
 <template>
 	<div class="block sm:flex gap-0 sm:gap-10 mt-14">
 		<!-- Single project left section details -->
-		<div class="w-full sm:w-1/3 text-left">
+		<div class="w-full sm:w-1/4 text-left">
 			<!-- Single project client details -->
 			<div v-if="project.details.client" class="mb-7">
 				<p
@@ -69,16 +70,22 @@ export default {
 							{{ project.details.guided.courseTitle }}
 						</a>
 					</li>
-					<li
+					<span
 						v-for="key in Object.keys(project.details.guided.details)"
 						:key="key"
-						class="font-general-regular text-ternary-dark dark:text-ternary-light"
 					>
-						<span>{{ capitalize(key) }}:&nbsp;</span>
-						<a :href="project.details.guided.details[key].url" target="_blank">
-							{{ project.details.guided.details[key].name }}
-						</a>
-					</li>
+						<li v-if="project.details.guided.details[key]" class="font-general-regular text-ternary-dark dark:text-ternary-light">
+							<span>{{ capitalize(key) }}:&nbsp;</span>
+							<a 
+								:href="project.details.guided.details[key].url" 
+								:class="linkClass"
+								target="_blank"
+							>
+								{{ project.details.guided.details[key].name }}
+							</a>
+						</li>
+					</span>
+					
 				</ul>
 			</div>
 			<!-- Single project objectives -->
@@ -134,7 +141,7 @@ export default {
 		</div>
 
 		<!-- Single project right section details -->
-		<div class="w-full sm:w-2/3 text-left mt-10 text-sm sm:mt-0 bg-slate-100 p-3 rounded-md overflow-auto max-h-screen">
+		<div class="w-full sm:w-3/4 text-left mt-10 text-sm sm:mt-0 bg-slate-100 p-3 rounded-md overflow-auto max-h-screen">
 			<Md v-if="hasMd"  :key="Math.ceil(Math.random()*1000000)" />
 			<!-- <component :is="componentLoader"/> -->
 			<!-- <p

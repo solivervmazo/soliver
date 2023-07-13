@@ -19,6 +19,7 @@ createApp(App)
 	.use(createHead())
 	.component('font-awesome-icon', FontAwesomeIcon)
 	.provide('imgProjectErrorUrl', new URL(`../src/assets/images/placeholder-project.jpg`, import.meta.url).href)
+	.provide('linkClass' , 'text-indigo-600 dark:text-indigo-300')
 	.mount('#app');
 
 const appTheme = localStorage.getItem('theme');

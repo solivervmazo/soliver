@@ -36,7 +36,7 @@ export default defineConfig({
                      '</code></pre>';
             } catch (__) {}
           }
-          return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+          return '';
         },
 
       },

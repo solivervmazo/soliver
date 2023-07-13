@@ -28,16 +28,7 @@ const projects = [
 		date: 'July 2023',
 		details: {
 			client: false,
-			guided: {
-				heading: 'About Project',
-				details: {
-					provider: sources['coursera'],
-					course :{
-						name: `Exploratory Data Analysis With Python and Pandas`,
-						url: 'https://www.coursera.org/projects/exploratory-data-analysis-python-pandas'
-					}
-				}
-			},
+			guided: false,
 			objective: {
 				key: 'objective',
 				heading: 'Objective',
@@ -79,6 +70,10 @@ const projects = [
 					course :{
 						name: `Exploratory Data Analysis With Python and Pandas`,
 						url: 'https://www.coursera.org/projects/exploratory-data-analysis-python-pandas'
+					},
+					certificate: {
+						name: '98S98F7JS7CT',
+						url: 'https://www.coursera.org/account/accomplishments/certificate/98S98F7JS7CT'
 					}
 				}
 			},
@@ -105,51 +100,49 @@ const projects = [
 			url: 'https://www.kaggle.com/solivermazo'
 		}
 	},
-	// {
-	// 	id: 2,
-	// 	title: 'Phoenix Digital Agency',
-	// 	category: 'Mobile Application',
-	// 	img: new URL('../assets/images/mobile-project-2.jpg', import.meta.url).href,
-	// 	type: 'guided project',
-	// 	date: 'July 2023',
-	// 	details: false
-	// },
-	// {
-	// 	id: 3,
-	// 	title: 'Project Management UI',
-	// 	category: 'UI/UX Design',
-	// 	img: new URL('../assets/images/ui-project-1.jpg', import.meta.url).href,
-	// 	type: 'guided project',
-	// 	date: 'July 2023',
-	// 	details: false
-	// },
-	// {
-	// 	id: 4,
-	// 	title: 'Cloud Storage Platform',
-	// 	category: 'UI/UX Design',
-	// 	img: new URL('../assets/images/ui-project-2.jpg', import.meta.url).href,
-	// 	type: 'guided project',
-	// 	date: 'July 2023',
-	// 	details: false
-	// },
-	// {
-	// 	id: 5,
-	// 	title: 'React Social App',
-	// 	category: 'Mobile Application',
-	// 	img: new URL('../assets/images/mobile-project-1.jpg', import.meta.url).href,
-	// 	type: 'guided project',
-	// 	date: 'July 2023',
-	// 	details: false
-	// },
-	// {
-	// 	id: 6,
-	// 	title: 'Apple Design System',
-	// 	category: 'Web Application',
-	// 	img: new URL('../assets/images/web-project-1.jpg', import.meta.url).href,
-	// 	type: 'guided project',
-	// 	date: 'July 2023',
-	// 	details: false
-	// },
+	{
+		id: 3,
+		dir: "coursera_py2",
+		project: 'python-for-data-analysis-pandas-numpy',
+		title: 'Python for Data Analysis: Pandas & NumPy',
+		category: 'Data Analysis',
+		img: 'cover.png' ,
+		type: 'guided project',
+		date: 'July 2023',
+		details: {
+			client: false,
+			guided: {
+				heading: 'About Project',
+				details: {
+					provider: sources['coursera'],
+					course :{
+						name: `Python for Data Analysis: Pandas & NumPy`,
+						url: 'https://www.coursera.org/projects/python-for-data-analysis-numpy'
+					},
+					certificate: {
+						name: '527RS23WZTLH',
+						url: 'https://www.coursera.org/account/accomplishments/certificate/527RS23WZTLH'
+					}
+				}
+			},
+			objective: {
+				key: 'objective',
+				heading: 'Objective',
+				text: ` Understand the fundamentals of data analysis in Python and we will leverage the power of two important python libraries known as Numpy and pandas. NumPy and Pandas are two of the most widely used python libraries in data science. They offer high-performance, easy to use structures and data analysis tools.`,
+			},
+			tags: {
+				key: 'tags',
+				heading: 'Tools & Technologies',
+				tags: ['Python', 'Data Analysis', 'Pandas', 'NumPy', 'Data Science']
+			}
+		},
+		src: {
+			coverImg: 'cover.png',
+			images: [],
+			md: 'notebook'
+		},
+		link: false
+	},
 ];
 
 export default projects;

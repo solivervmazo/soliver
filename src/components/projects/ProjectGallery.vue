@@ -3,6 +3,7 @@ import urls from '../../mixins/urls.js';
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue';
 
 export default {
+	inject: ['linkClass'],
 	props: ['project'],
 	data() {
 		return { 
@@ -40,10 +41,10 @@ export default {
 							leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
 							<DialogPanel
 								class="relative max-w-screen-lg sm:max-h-screen transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all mt-10">
-								<div class="bg-gray-50 px-3 py-3 sm:flex sm:flex-row-reverse sm:px-3">
+								<div :class="[linkClass]" class="bg-gray-50 px-3 py-3 sm:flex sm:flex-row-reverse sm:px-3">
 									<font-awesome-icon 
 										:icon="'xmark'" 
-										class="w-4 h-4 text-ternary-dark dark:text-ternary-light cursor-pointer" 
+										class="w-4 h-4  cursor-pointer" 
 										@click="open=false; imgEnlarge=undefined"
 									></font-awesome-icon>
 								</div>
