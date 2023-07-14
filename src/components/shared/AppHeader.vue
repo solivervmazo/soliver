@@ -77,10 +77,10 @@ export default {
 </script>
 
 <template>
-	<nav id="nav" class="sm:container sm:mx-auto">
+	<nav id="nav" class="fixed top-0 z-10 bg-gray-50 w-full x-0 mx-auto top-0 z-10  bg-primary-light dark:bg-primary-dark">
 		<!-- Header start -->
 		<div
-			class="z-10 max-w-screen-lg xl:max-w-screen-xl block sm:flex sm:justify-between sm:items-center my-6"
+			class="z-10 max-w-screen-lg mx-auto sm:flex justify-between sm:items-center my-3"
 		>
 			<!-- Header menu links and small screen hamburger menu -->
 			<div class="flex justify-between items-center px-4 sm:px-0">
@@ -103,14 +103,14 @@ export default {
 				</div>
 
 				<!-- Theme switcher small screen -->
-				<theme-switcher
-					:theme="theme"
-					@themeChanged="updateTheme"
-					class="block sm:hidden bg-ternary-light dark:bg-ternary-dark hover:bg-hover-light dark:hover:bg-hover-dark hover:shadow-sm px-2.5 py-2 rounded-lg"
-				/>
 
 				<!-- Small screen hamburger menu -->
-				<div class="sm:hidden">
+				<div class="flex flex-items sm:hidden">
+					<theme-switcher
+						:theme="theme"
+						@themeChanged="updateTheme"
+						class="sm:hidden  bg-ternary-light dark:bg-ternary-dark hover:bg-hover-light dark:hover:bg-hover-dark hover:shadow-sm px-2.5 py-2 rounded-lg"
+					/>
 					<button
 						@click="isOpen = !isOpen"
 						type="button"

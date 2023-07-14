@@ -72,7 +72,7 @@ const projects = [
 		id: 2,
 		dir: "sql_airbnb_london",
 		project: 'sql-data-cleaning-london-airbnb-listings-2023',
-		title: 'Data cleaning using SQL: London AairBnb listings March 2023',
+		title: 'Data cleaning using SQL: London AirBnb listings March 2023',
 		category: 'Data Analysis',
 		img: 'cover.png' ,
 		type: 'soliver mazo',
@@ -193,6 +193,49 @@ const projects = [
 			url: 'https://www.kaggle.com/solivermazo/python-for-data-analysis-pandas-numpy'
 		}
 	},
+	{
+		id: 4,
+		dir: "sql_window_func",
+		project: 'sql-window-functions-for-analytics',
+		title: 'SQL Window Functions for Analytics',
+		category: 'Data Analysis',
+		img: 'cover.png' ,
+		type: 'guided project',
+		date: 'July 2023',
+		details: {
+			client: false,
+			guided: {
+				heading: 'About Project',
+				details: {
+					provider: sources['coursera'],
+					course :{
+						name: `SQL Window Functions for Analytics`,
+						url: 'https://www.coursera.org/projects/sql-window-functions-for-analytics'
+					},
+					// certificate: {
+					// 	name: '527RS23WZTLH',
+					// 	url: 'https://www.coursera.org/account/accomplishments/certificate/527RS23WZTLH'
+					// }
+				}
+			},
+			objective: {
+				key: 'objective',
+				heading: 'Objective',
+				text: `This is a hands-on project that will help SQL users use window functions extensively for database insights. In this project, you will learn how to explore and query the project-db database extensively. We will start this hands-on project by retrieving the data in the table in the database.`,
+			},
+			tags: {
+				key: 'tags',
+				heading: 'Tools & Technologies',
+				tags: ['SQL', 'MySql Workbench', 'Data Analysis', 'Data Science']
+			}
+		},
+		src: {
+			coverImg: 'cover.png',
+			images: ['1.png'],
+			md: 'README'
+		},
+		link: false
+	}
 ];
 
 export default projects;

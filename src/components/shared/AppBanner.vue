@@ -6,7 +6,7 @@ export default {
 	data: () => {
 		return {
 			theme: '',
-			bannerImage: new URL('~@/assets/images/developer.svg', import.meta.url).href,
+			bannerImage: new URL('~@/assets/images/soliver-mazo-data-analysis.png', import.meta.url).href,
 		};
 	},
 	created() {
@@ -25,56 +25,45 @@ export default {
 
 <template>
 	<section
-		class="flex flex-col sm:justify-between items-center sm:flex-row mt-12 sm:mt-10"
+		class="w-full relative pt-20"
 	>
-		<!-- Banner left contents -->
-		<div class="w-full md:w-1/3 text-left">
-			<h1
-				class="font-general-semibold text-3xl md:text-3xl xl:text-4xl text-center sm:text-left text-ternary-dark dark:text-primary-light uppercase"
-			>
-				Hi, I'am Soliver
-			</h1>
-			<p
-				class="font-general-medium mt-2 text-lg sm:text-xl  xl:text-2xl text-center sm:text-left leading-none text-gray-400"
-			>
-				Aspiring Data Analyst
-			</p>
-			<p
-				class="font-general-medium mt-2 text-md sm:text-sm  xl:text-2xl text-center sm:text-left leading-none text-gray-400"
-			>
-				SQL • PYTHON • TABLEAU • GOOGLE SHEETS
-			</p>
-			<!-- <div class="flex justify-center sm:block">
-				<a
-					download="Stoman-Resume.pdf"
-					href="/files/Stoman-Resume.pdf"
-					class="flex justify-center items-center w-36 sm:w-48 mt-12 mb-6 sm:mb-0 text-lg border border-indigo-200 dark:border-ternary-dark py-2.5 sm:py-3 shadow-lg rounded-lg bg-indigo-50 focus:ring-1 focus:ring-indigo-900 hover:bg-indigo-500 text-gray-500 hover:text-white duration-500"
-					aria-label="Download Resume"
-				>
-					<i
-						data-feather="arrow-down-circle"
-						class="ml-0 sm:ml-1 mr-2 sm:mr-3 w-5 sm:w-6 duration-100"
-					></i>
-					<span
-						class="text-sm sm:text-lg font-general-medium duration-100"
-						>Download CV</span
-					></a
-				>
-			</div> -->
+		<!-- Banner right bg -->
+		<div class="max-h-72 h-72 w-full text-right float-right mb-4">
+			<img
+				class="object-cover max-h-72 w-full text-right float-right"
+				:src="bannerImage"
+				alt="Developer"
+			/>
 		</div>
-
-		<!-- Banner right illustration -->
-		<div class="w-full md:w-2/3 text-right float-right">
-			<img
-				v-if="theme === 'light'"
-				:src="bannerImage"
-				alt="Developer"
-			/>
-			<img
-				v-else
-				:src="bannerImage"
-				alt="Developer"
-			/>
+		<div
+			class="absolute w-full max-h-72 h-72 flex flex-col justify-between"
+		>
+			<div
+				class="container flex flex-col mx-auto sm:justify-end sm:flex-row mt-12 sm:mt-10"
+			>
+				<!-- Banner left contents -->
+				<div class="w-full md:w-3/3 text-right">
+					<h1
+						class="font-general-semibold text-3xl md:text-3xl xl:text-4xl text-primary-light uppercase"
+					>
+						Hi, I'm Soliver
+					</h1>
+					<p
+						class="font-general-medium mt-2 text-lg sm:text-xl  xl:text-2xl leading-none text-gray-200"
+					>
+						Aspiring Data Analyst
+					</p>
+				</div>
+			</div>
+			<div
+				class="typewriter container flex flex-col mx-auto sm:justify-end sm:flex-row mb-8 sm:mb-8"
+			>
+				<p
+					class="font-general-medium mt-2 text-right py-1 text-md sm:text-lg  xl:text-2xl leading-tight text-gray-100  bg-primary-dark px-2"
+				>
+					SQL • PYTHON • TABLEAU • GOOGLE SHEETS<span class="px-1 typer_end">.</span>
+				</p>
+			</div>
 		</div>
 	</section>
 </template>

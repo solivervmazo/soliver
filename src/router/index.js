@@ -20,6 +20,7 @@ const routes = [
 			import(/* webpackChunkName: "about" */ '../views/About.vue'),
 		meta: {
 			title: 'Soliver - About',
+			description: `Soliver Mazo, analytics project including Sql, Python, Tableu, Google sheets - Kaggle, BigQuery, GitHub, LinkedIn`
 		}
 	},
 	{
@@ -32,6 +33,7 @@ const routes = [
 			import(/* webpackChunkName: "about" */ '../views/Credentials.vue'),
 		meta: {
 			title: 'Soliver - Credentials',
+			description: `Soliver Mazo, analytics project including Sql, Python, Tableu, Google sheets - Kaggle, BigQuery, GitHub, LinkedIn`
 		},
 	},
 	{
@@ -44,6 +46,7 @@ const routes = [
 			import(/* webpackChunkName: "projects" */ '../views/Projects.vue'),
 		meta: {
 			title: 'Soliver - Projects',
+			description: `Soliver Mazo, analytics project including Sql, Python, Tableu, Google sheets - Kaggle, BigQuery, GitHub, LinkedIn`
 		},
 	},
 	{
@@ -70,6 +73,7 @@ const routes = [
 			import(/* webpackChunkName: "projects" */ '../views/Contact.vue'),
 		meta: {
 			title: 'Soliver - Contact',
+			description: `Soliver Mazo, analytics project including Sql, Python, Tableu, Google sheets - Kaggle, BigQuery, GitHub, LinkedIn`
 		},
 	},
 ];
@@ -103,13 +107,13 @@ router.beforeEach((to, from, next) => {
 	const nearestWithMeta = to.matched
 		.slice()
 		.reverse()
-		.find((r) => r.meta && r.meta.metaTags);
-
+		.find((r) => r.meta );
+		// .find((r) => r.meta && r.meta.metaTags);
 	const previousNearestWithMeta = from.matched
 		.slice()
 		.reverse()
-		.find((r) => r.meta && r.meta.metaTags);
-
+		.find((r) => r.meta );
+		// .find((r) => r.meta && r.meta.metaTags);
 	// If a route with a title was found, set the document (page) title to that value.
 	if (nearestWithTitle) {
 		document.title = nearestWithTitle.meta.title;
@@ -121,26 +125,55 @@ router.beforeEach((to, from, next) => {
 	Array.from(
 		document.querySelectorAll('[data-vue-router-controlled]')
 	).map((el) => el.parentNode.removeChild(el));
-
 	// Skip rendering meta tags if there are none.
 	if (!nearestWithMeta) return next();
 
+
 	// Turn the meta tag definitions into actual elements in the head.
-	nearestWithMeta.meta.metaTags
-		.map((tagDef) => {
-			const tag = document.createElement('meta');
+	// nearestWithMeta.meta.metaTags
+	// 	.map((tagDef) => {
+	// 		const tag = document.createElement('meta');
 
-			Object.keys(tagDef).forEach((key) => {
-				tag.setAttribute(key, tagDef[key]);
-			});
+	// 		Object.keys(tagDef).forEach((key) => {
+	// 			tag.setAttribute(key, tagDef[key]);
+	// 		});
 
-			// We use this to track which meta tags we create so we don't interfere with other ones.
-			tag.setAttribute('data-vue-router-controlled', '');
+	// 		// We use this to track which meta tags we create so we don't interfere with other ones.
+	// 		tag.setAttribute('data-vue-router-controlled', '');
 
-			return tag;
-		})
-		// Add the meta tags to the document head.
-		.forEach((tag) => document.head.appendChild(tag));
+	// 		return tag;
+	// 	})
+	// 	// Add the meta tags to the document head.
+	// 	.forEach((tag) => document.head.appendChild(tag));
+	Object.keys(nearestWithMeta.meta).forEach( function( key, index) {
+		const tag = document.createElement('meta');
+		tag.setAttribute(key, nearestWithMeta.meta[key]);
+		tag.setAttribute('data-vue-router-controlled', '');
+		document.head.appendChild(tag);
+		if(to.name && to.name == 'Single Project') {
+			const tag2 = document.createElement('meta');
+			const attr = `Soliver Mazo, analytics project: ${to.params.project.replaceAll('-', ' ')} -including Sql, Python, Tableu, Google sheets - Kaggle, BigQuery, GitHub, LinkedIn`
+			tag2.setAttribute('description', attr);
+			tag2.setAttribute('data-vue-router-controlled', '');
+			document.head.appendChild(tag2);
+		}
+	})
+	// nearestWithMeta.meta
+	// 	.map((tagDef) => {
+	// 		console.log("tagDef", tagDef)
+	// 		const tag = document.createElement('meta');
 
+	// 		Object.keys(tagDef).forEach((key) => {
+	// 			tag.setAttribute(key, tagDef[key]);
+	// 		});
+
+	// 		// We use this to track which meta tags we create so we don't interfere with other ones.
+	// 		tag.setAttribute('data-vue-router-controlled', '');
+
+	// 		return tag;
+	// 	})
+	// 	// Add the meta tags to the document head.
+	// 	.forEach((tag) => document.head.appendChild(tag));
+	
 	next();
 });
