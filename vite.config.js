@@ -4,7 +4,6 @@ import path from 'path'
 import Markdown from 'vite-plugin-vue-markdown'
 import code from '@yankeeinlondon/code-builder'
 import markdownitEmoji from 'markdown-it-emoji';
-import md from 'markdown-it'
 import hljs from 'highlight.js'
 
 

@@ -238,5 +238,9 @@ const projects = [
 	}
 ];
 
+function getProject(projectName) {
+	return projects.find(x => x.project == projectName) ?? false;
+}
+
 export default projects;
-export { projects , categories };
+export { projects , categories , getProject };

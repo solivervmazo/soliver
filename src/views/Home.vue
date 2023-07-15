@@ -2,8 +2,28 @@
 import AppBanner from '../components/shared/AppBanner.vue';
 import ProjectsGrid from '../components/projects/ProjectsGrid.vue';
 import Button from '../components/reusable/Button.vue';
+import { useMeta } from 'vue-meta';
 
 export default {
+	setup () {
+		useMeta({
+			meta: [
+				{ name : 'title', content : 'Soliver Mazo' },
+				{ name : 'description', content : 'Soliver Mazo, A portfolio showcasing project for data analytics and relevant skills' },
+				
+				{ property : 'og:type', content : 'website' },
+				{ property : 'og:url', content : 'https://solivervmazo.github.io/soliver/' },
+				{ property : 'og:description', content : 'Soliver Mazo, A portfolio showcasing project for data analytics and relevant skills' },
+				{ property : 'og:image', content : 'https://solivervmazo.github.io/soliver/solivervmazo.png' },
+
+				{ property : 'twitter:card', content : 'summary_large_image' },
+				{ property : 'twitter:url', content : 'https://solivervmazo.github.io/soliver/' },
+				{ property : 'twitter:title', content : 'Soliver Mazo' },
+				{ property : 'twitter:description', content : 'Soliver Mazo, A portfolio showcasing project for data analytics and relevant skills' },
+				{ property : 'twitter:image', content : 'https://solivervmazo.github.io/soliver/solivervmazo.png' },
+			]
+		})
+	},
 	name: 'Home',
 	components: {
 		AppBanner,
@@ -14,6 +34,8 @@ export default {
 </script>
 
 <template>
+	<metainfo>
+	</metainfo>
 	<div class="mx-auto">
 		<!-- Banner -->
 		<AppBanner class="mb-5 sm:mb-8" />

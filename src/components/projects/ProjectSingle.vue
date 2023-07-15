@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-	<router-link :to="{ path: `/projects/${project.project}`, query: { dir: project.dir, md : project.src.md } }"
+	<router-link :to="{ path: `/projects/${project.project}`}"
 		class="relative rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark"
 		aria-label="Single Project">
 		<div class="overflow-hidden max-h-40">

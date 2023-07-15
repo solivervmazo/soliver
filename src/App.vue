@@ -28,10 +28,11 @@ export default {
 		<AppHeader />
 
 		<!-- Render active component contents with vue transition -->
-		<transition name="fade" mode="out-in">
-			<router-view :theme="appTheme" />
-		</transition>
-
+		<div class="pt-8">
+			<transition name="fade" mode="out-in">
+				<router-view :theme="appTheme" />
+			</transition>
+		</div>
 		<!-- Scroll to top -->
 		<back-to-top
 			visibleoffset="500"

@@ -109,7 +109,7 @@ export default {
 					<theme-switcher
 						:theme="theme"
 						@themeChanged="updateTheme"
-						class="sm:hidden  bg-ternary-light dark:bg-ternary-dark hover:bg-hover-light dark:hover:bg-hover-dark hover:shadow-sm px-2.5 py-2 rounded-lg"
+						class="sm:hidden bg-ternary-light dark:bg-ternary-dark hover:bg-hover-light dark:hover:bg-hover-dark hover:shadow-sm px-2.5 mx-1.5 py-2 rounded-lg"
 					/>
 					<button
 						@click="isOpen = !isOpen"

@@ -7,13 +7,24 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faKaggle, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { createHead } from '@vueuse/head'
+import { createHead } from '@vueuse/head';
+import { createMetaManager, defaultConfig } from 'vue-meta';
 // const feather = require('feather-icons');
 // feather.replace();
 
 library.add(faKaggle,faXmark,faGoogle)
 
 createApp(App)
+	.use(createMetaManager(
+		false,
+		{
+			...defaultConfig,
+			meta: {
+				tag: 'meta',
+				nameless: true
+			}
+		}
+	))
 	.use(router)
 	.use(BackToTop)
 	.use(createHead())

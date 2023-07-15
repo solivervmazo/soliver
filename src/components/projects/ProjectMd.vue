@@ -1,45 +1,33 @@
 <script>
 import feather from 'feather-icons';
-import { defineAsyncComponent, nextTick, ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { defineAsyncComponent } from 'vue';
+import NotFound from '../error/Markdown404.vue';
 
 export default {
-	props: ['project'],
-    data: () => {
-        return {
-            componentKey: Math.ceil(Math.random()*1000000),
-        }
-    },
+	props: ['dir','file'],
 	components:{
-		Md: defineAsyncComponent(() => import(/* @vite-ignore */`../../data/projects/${useRoute().query.dir}/${useRoute().query.md}.md`))
+        Md: undefined
 	},
-    created() {
-        this.$watch(
-            () => this.$route.query,
-            async () => {
-                this.componentKey = Math.ceil(Math.random()*1000000);
-            },
-            // fetch the data when the view is created and the data is
-            // already being observed
-            { immediate: true }
-      )
-    },
+    beforeMount(){
+        this.$options.components['Md'] = defineAsyncComponent({
+					loader: () => import(/* @vite-ignore */`../../data/projects/${this.$props.dir}/${this.$props.file}.md`),
+					timeout: 200,
+					errorComponent: NotFound
+				})
+	},
 	mounted() {
-        this.$options.components['Md'] = defineAsyncComponent(() => import(/* @vite-ignore */`../../data/projects/${useRoute().query.dir}/${useRoute().query.md}.md`))
+        
 		feather.replace();
 	},
 	updated() {
 		feather.replace();
 	},
-    unmounted()  {
-        
-    }
 };
 </script>
 
 <template>
 		<div class="prose">
-			<Md :key="componentKey"/>
+			<Md/>
 		</div>
 </template>
 <style lang="scss">

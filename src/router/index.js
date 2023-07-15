@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
+import NotFound from '../components/error/NotFound.vue';
+import projects from '../data/projects';
 
 const routes = [
 	{
@@ -7,74 +9,60 @@ const routes = [
 		name: 'Home',
 		component: Home,
 		meta: {
-			title: 'Soliver - Home',
+			title: 'Soliver Mazo',
 		},
 	},
 	{
 		path: '/about',
 		name: 'About',
-		// route level code-splitting
-		// this generates a separate chunk (about.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
 		component: () =>
 			import(/* webpackChunkName: "about" */ '../views/About.vue'),
 		meta: {
-			title: 'Soliver - About',
-			description: `Soliver Mazo, analytics project including Sql, Python, Tableu, Google sheets - Kaggle, BigQuery, GitHub, LinkedIn`
+			title: 'Soliver Mazo',
 		}
 	},
 	{
 		path: '/credentials',
 		name: 'Credentials',
-		// route level code-splitting
-		// this generates a separate chunk (about.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
 		component: () =>
 			import(/* webpackChunkName: "about" */ '../views/Credentials.vue'),
 		meta: {
-			title: 'Soliver - Credentials',
-			description: `Soliver Mazo, analytics project including Sql, Python, Tableu, Google sheets - Kaggle, BigQuery, GitHub, LinkedIn`
+			title: 'Soliver Mazo',
 		},
 	},
 	{
 		path: '/projects',
 		name: 'Projects',
-		// route level code-splitting
-		// this generates a separate chunk (projects.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
 		component: () =>
 			import(/* webpackChunkName: "projects" */ '../views/Projects.vue'),
 		meta: {
-			title: 'Soliver - Projects',
-			description: `Soliver Mazo, analytics project including Sql, Python, Tableu, Google sheets - Kaggle, BigQuery, GitHub, LinkedIn`
+			title: 'Soliver Mazo',
 		},
 	},
 	{
 		path: '/projects/:project',
-		name: 'Single Project',
-		// route level code-splitting
-		// this generates a separate chunk (projects.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
+		name: 'SingleProject',
 		component: () =>
 			import(
 				/* webpackChunkName: "projects" */ '../views/SingleProject.vue'
 			),
 		meta: {
-			title: 'Soliver - Single Project',
+			title: 'Soliver Mazo',
 		},
 	},
 	{
 		path: '/contact',
 		name: 'Contact',
-		// route level code-splitting
-		// this generates a separate chunk (projects.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
 		component: () =>
 			import(/* webpackChunkName: "projects" */ '../views/Contact.vue'),
 		meta: {
-			title: 'Soliver - Contact',
-			description: `Soliver Mazo, analytics project including Sql, Python, Tableu, Google sheets - Kaggle, BigQuery, GitHub, LinkedIn`
+			title: 'Soliver Mazo',
 		},
+	},
+	{ 
+		path: '/:pathMatch(.*)*', 
+		name: 'NotFound', 
+		component: NotFound 
 	},
 ];
 
@@ -88,92 +76,25 @@ const router = createRouter({
 
 export default router;
 
-/**
- * Below code will display the component/active page title
- * Powered by: Nangialai Soliver
- */
-
-// This callback runs before every route change, including on page load.
 router.beforeEach((to, from, next) => {
-	// This goes through the matched routes from last to first, finding the closest route with a title.
-	// e.g., if we have `/some/deep/nested/route` and `/some`, `/deep`, and `/nested` have titles,
-	// `/nested`'s will be chosen.
-	const nearestWithTitle = to.matched
-		.slice()
-		.reverse()
-		.find((r) => r.meta && r.meta.title);
+	// var desc = 'Soliver Mazo, A portfolio showcasing project for data analytics and relevant skills';
+	// var pType = to.name == 'Home' ? 'website' : 'article'
+	// var href = 'https://solivervmazo.github.io' + to.href;
+	// if(to.name == 'SingleProject') {
+	// 	const project = projects.find(x => x.project == to.params.project);
+	// 	if(project && project.title ) desc = project.title;
+	// 	if(project && project.details.tags && project.details.tags.tags) desc = desc + ` - ${ project.details.tags.tags.join(',')}`;
+	// }
+	// Array.from(
+	// 	document.querySelectorAll('[data-vue-router-controlled]')
+	// ).map((el) => el.setAttribute('content' , to.meta && to.meta.description ? to.meta.description : desc  ));
 
-	// Find the nearest route element with meta tags.
-	const nearestWithMeta = to.matched
-		.slice()
-		.reverse()
-		.find((r) => r.meta );
-		// .find((r) => r.meta && r.meta.metaTags);
-	const previousNearestWithMeta = from.matched
-		.slice()
-		.reverse()
-		.find((r) => r.meta );
-		// .find((r) => r.meta && r.meta.metaTags);
-	// If a route with a title was found, set the document (page) title to that value.
-	if (nearestWithTitle) {
-		document.title = nearestWithTitle.meta.title;
-	} else if (previousNearestWithMeta) {
-		document.title = previousNearestWithMeta.meta.title;
-	}
+	// Array.from(
+	// 	document.querySelectorAll('[data-vue-router-controlled-type]')
+	// ).map((el) => el.setAttribute('content' , pType  ));
 
-	// Remove any stale meta tags from the document using the key attribute we set below.
-	Array.from(
-		document.querySelectorAll('[data-vue-router-controlled]')
-	).map((el) => el.parentNode.removeChild(el));
-	// Skip rendering meta tags if there are none.
-	if (!nearestWithMeta) return next();
-
-
-	// Turn the meta tag definitions into actual elements in the head.
-	// nearestWithMeta.meta.metaTags
-	// 	.map((tagDef) => {
-	// 		const tag = document.createElement('meta');
-
-	// 		Object.keys(tagDef).forEach((key) => {
-	// 			tag.setAttribute(key, tagDef[key]);
-	// 		});
-
-	// 		// We use this to track which meta tags we create so we don't interfere with other ones.
-	// 		tag.setAttribute('data-vue-router-controlled', '');
-
-	// 		return tag;
-	// 	})
-	// 	// Add the meta tags to the document head.
-	// 	.forEach((tag) => document.head.appendChild(tag));
-	Object.keys(nearestWithMeta.meta).forEach( function( key, index) {
-		const tag = document.createElement('meta');
-		tag.setAttribute(key, nearestWithMeta.meta[key]);
-		tag.setAttribute('data-vue-router-controlled', '');
-		document.head.appendChild(tag);
-		if(to.name && to.name == 'Single Project') {
-			const tag2 = document.createElement('meta');
-			const attr = `Soliver Mazo, analytics project: ${to.params.project.replaceAll('-', ' ')} -including Sql, Python, Tableu, Google sheets - Kaggle, BigQuery, GitHub, LinkedIn`
-			tag2.setAttribute('description', attr);
-			tag2.setAttribute('data-vue-router-controlled', '');
-			document.head.appendChild(tag2);
-		}
-	})
-	// nearestWithMeta.meta
-	// 	.map((tagDef) => {
-	// 		console.log("tagDef", tagDef)
-	// 		const tag = document.createElement('meta');
-
-	// 		Object.keys(tagDef).forEach((key) => {
-	// 			tag.setAttribute(key, tagDef[key]);
-	// 		});
-
-	// 		// We use this to track which meta tags we create so we don't interfere with other ones.
-	// 		tag.setAttribute('data-vue-router-controlled', '');
-
-	// 		return tag;
-	// 	})
-	// 	// Add the meta tags to the document head.
-	// 	.forEach((tag) => document.head.appendChild(tag));
-	
+	// Array.from(
+	// 	document.querySelectorAll('[data-vue-router-controlled-href]')
+	// ).map((el) => el.setAttribute('content' , href  ));
 	next();
 });
