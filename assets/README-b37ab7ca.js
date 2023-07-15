@@ -1,4 +1,4 @@
-import{N as a,o as n,c as e,E as l}from"./index-b33506da.js";const p={class:"markdown-body"},r=l(`<h3>Window function refresher</h3><pre class="hljs"><code><span class="hljs-keyword">SELECT</span> 
+import{N as a,o as n,c as e,E as l}from"./index-5f209bec.js";const p={class:"markdown-body"},r=l(`<h3>Window function refresher</h3><pre class="hljs"><code><span class="hljs-keyword">SELECT</span> 
 	employee_id,
     first_name,
     department,
