@@ -1,4 +1,4 @@
-import{L as a,o as n,c as l,C as p}from"./index-4db451c0.js";const o={class:"markdown-body"},r=p(`<h2>SQL</h2><p>Data source: <a href="http://">https://www.kaggle.com/datasets/minemartin/london-airbnb-listings-march-2023</a></p><pre class="hljs"><code><span class="hljs-comment">/*
+import{L as a,o as n,c as l,C as p}from"./index-41945036.js";const o={class:"markdown-body"},r=p(`<h2>SQL</h2><p>Data source: <a href="http://">https://www.kaggle.com/datasets/minemartin/london-airbnb-listings-march-2023</a></p><pre class="hljs"><code><span class="hljs-comment">/*
 Cleaning Data in SQL Queries
 Dataset:https://www.kaggle.com/datasets/minemartin/london-airbnb-listings-march-2023
 */</span>
