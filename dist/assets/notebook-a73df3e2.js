@@ -1,4 +1,4 @@
-import{K as n,o as a,c as e,L as l}from"./index-e85d7495.js";const p={class:"markdown-body"},r=l(`<h1>Single and multi-dimensional numpy arrays</h1><pre class="hljs"><code><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+import{L as n,o as a,c as e,C as l}from"./index-4db451c0.js";const p={class:"markdown-body"},r=l(`<h1>Single and multi-dimensional numpy arrays</h1><pre class="hljs"><code><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
 <span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
 </code></pre><pre class="hljs"><code><span class="hljs-comment"># Define list</span>
 my_list = [<span class="hljs-number">50</span>, <span class="hljs-number">60</span>, <span class="hljs-number">80</span>, <span class="hljs-number">100</span> , <span class="hljs-number">200</span>, <span class="hljs-number">300</span>, <span class="hljs-number">500</span>, <span class="hljs-number">600</span>]
